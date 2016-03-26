@@ -20,8 +20,9 @@ using Neo4j.Driver.Internal.Connector;
 
 namespace Neo4j.Driver.Internal
 {
-    internal class SessionPool : LoggerBase
+    internal class SessionPool : IDisposable
     {
+        private readonly ILogger _logger;
         private readonly IAuthToken _authToken;
         private readonly Queue<IPooledSession> _availableSessions = new Queue<IPooledSession>();
         private readonly Config _config;
@@ -31,8 +32,8 @@ namespace Neo4j.Driver.Internal
         private readonly Uri _uri;
 
         public SessionPool(Uri uri, IAuthToken authToken, ILogger logger, Config config, IConnection connection = null)
-            : base(logger)
         {
+            _logger = logger;
             _uri = uri;
             _authToken = authToken;
             _config = config;
@@ -56,7 +57,7 @@ namespace Neo4j.Driver.Internal
 
         public ISession GetSession()
         {
-            return TryExecute(() =>
+            return TryExecute.WithLogger(() =>
             {
                 IPooledSession session = null;
                 lock (_availableSessions)
@@ -87,12 +88,12 @@ namespace Neo4j.Driver.Internal
                     _inUseSessions.Add(session.Id, session);
                 }
                 return session;
-            });
+            }, _logger);
         }
 
         public void Release(Guid sessionId)
         {
-            TryExecute(() =>
+            TryExecute.WithLogger(() =>
             {
                 IPooledSession session;
                 lock (_inUseSessions)
@@ -122,17 +123,23 @@ namespace Neo4j.Driver.Internal
                     //release resources by session
                     session.Close();
                 }
-            });
+            }, _logger);
         }
 
-        protected override void Dispose(bool isDisposing)
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool isDisposing)
         {
             if (!isDisposing)
             {
                 return;
             }
 
-            TryExecute(() =>
+            TryExecute.WithLogger(() =>
             {
                 lock (_inUseSessions)
                 {
@@ -140,7 +147,7 @@ namespace Neo4j.Driver.Internal
                     _inUseSessions.Clear();
                     foreach (var inUseSession in sessions)
                     {
-                        Logger?.Info($"Disposing In Use Session {inUseSession.Id}");
+                        _logger?.Info($"Disposing In Use Session {inUseSession.Id}");
                         inUseSession.Close();
                     }
                 }
@@ -149,12 +156,11 @@ namespace Neo4j.Driver.Internal
                     while (_availableSessions.Count > 0)
                     {
                         var session = _availableSessions.Dequeue();
-                        Logger?.Info($"Disposing Available Session {session.Id}");
+                        _logger?.Info($"Disposing Available Session {session.Id}");
                         session.Close();
                     }
                 }
-            });
-            base.Dispose(true);
+            }, _logger);
         }
     }
 

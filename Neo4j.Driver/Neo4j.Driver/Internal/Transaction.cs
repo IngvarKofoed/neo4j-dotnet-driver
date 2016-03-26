@@ -25,13 +25,15 @@ namespace Neo4j.Driver.Internal
 {
     public class Transaction : StatementRunner, ITransaction
     {
+        private readonly ILogger _logger;
         private State _state = State.Active;
         private readonly IConnection _connection;
         public bool Finished { get; private set; }
 
-        public Transaction(IConnection connection, ILogger logger=null) : base(logger)
-        {
+        public Transaction(IConnection connection, ILogger logger=null)
+        { 
             _connection = connection;
+            _logger = logger;
             Finished = false;
 
             _connection.Run(null, "BEGIN");
@@ -62,7 +64,7 @@ namespace Neo4j.Driver.Internal
             RolledBack
         }
 
-        protected override void Dispose(bool isDisposing)
+        protected virtual void Dispose(bool isDisposing)
         {
             if (!isDisposing)
             {
@@ -89,11 +91,10 @@ namespace Neo4j.Driver.Internal
             finally
             {
                 Finished = true;
-                base.Dispose(isDisposing);
             }
         }
 
-        public new void Dispose()
+        public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
@@ -101,7 +102,7 @@ namespace Neo4j.Driver.Internal
 
         public override IStatementResult Run(string statement, IDictionary<string, object> parameters=null)
         {
-            return TryExecute(() =>
+            return TryExecute.WithLogger(() =>
             {
                 EnsureNotFailed();
 
@@ -118,7 +119,7 @@ namespace Neo4j.Driver.Internal
                     _state = State.Failed;
                     throw;
                 }
-            });
+            }, _logger);
         }
 
         private void EnsureNotFailed()

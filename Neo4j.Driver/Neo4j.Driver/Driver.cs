@@ -30,11 +30,11 @@ namespace Neo4j.Driver
     ///     configured by the <see cref="Config.MaxIdleSessionPoolSize" /> property on the <see cref="Config" /> when creating the
     ///     Driver.
     /// </remarks>
-    public class Driver : LoggerBase
+    public class Driver : IDisposable
     {
         private SessionPool _sessionPool;
 
-        internal Driver(Uri uri, IAuthToken authToken, Config config) : base(config?.Logger)
+        internal Driver(Uri uri, IAuthToken authToken, Config config) 
         {
             Throw.ArgumentNullException.IfNull(uri, nameof(uri));
             Throw.ArgumentNullException.IfNull(authToken, nameof(authToken));
@@ -55,13 +55,18 @@ namespace Neo4j.Driver
         /// </summary>
         public Uri Uri { get; }
 
-        protected override void Dispose(bool isDisposing)
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool isDisposing)
         {
             if (!isDisposing)
                 return;
             _sessionPool?.Dispose();
             _sessionPool = null;
-            Logger?.Dispose();
         }
 
         /// <summary>

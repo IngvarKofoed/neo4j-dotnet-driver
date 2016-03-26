@@ -54,7 +54,7 @@
     <Compile Include="Internal\Connector\IOutputStream.cs" />
     <Compile Include="Internal\Connector\ISocketClient.cs" />
     <Compile Include="IEntity.cs" />
-    <Compile Include="Internal\LoggerBase.cs" />
+    <Compile Include="Internal\TryExecute.cs" />
     <Compile Include="Internal\Messaging\RecordMessage.cs" />
     <Compile Include="Internal\Messaging\SuccessMessage.cs" />
     <Compile Include="Internal\Messaging\FailureMessage.cs" />

@@ -4,9 +4,9 @@ using System.Reflection;
 
 namespace Neo4j.Driver.Internal
 {
-    public abstract class StatementRunner : LoggerBase
+    public abstract class StatementRunner 
     {
-        protected StatementRunner(ILogger logger) : base(logger)
+        protected StatementRunner() 
         {
         }
 

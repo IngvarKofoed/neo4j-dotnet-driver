@@ -31,14 +31,21 @@ namespace Neo4j.Driver.Internal
         private readonly ILogger _logger;
 
         public Session(Uri url, IAuthToken authToken, Config config, IConnection conn = null, Action<Guid> releaseAction = null )
-            : base(config?.Logger)
         {
-            _connection = TryExecute(() => conn ?? new SocketConnection(url, authToken, config));
+            _connection = TryExecute.WithLogger(
+                () => conn ?? new SocketConnection(url, authToken, config),
+                _logger);
             _releaseAction = releaseAction ?? (x => {});
             _logger = config?.Logger;
         }
 
-        protected override void Dispose(bool isDisposing)
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool isDisposing)
         {
             if (!isDisposing)
             {
@@ -58,19 +65,12 @@ namespace Neo4j.Driver.Internal
             }
 
             _releaseAction(Id);
-            base.Dispose(isDisposing);
             
-        }
-
-        public new void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
 
         public override IStatementResult Run(string statement, IDictionary<string, object> statementParameters = null)
         {
-            return TryExecute(() =>
+            return TryExecute.WithLogger(() =>
             {
                 EnsureConnectionIsValid();
                 var resultBuilder = new ResultBuilder(statement, statementParameters);
@@ -79,17 +79,17 @@ namespace Neo4j.Driver.Internal
                 _connection.Sync();
 
                 return resultBuilder.Build();
-            });
+            }, _logger);
         }
 
         public ITransaction BeginTransaction()
         {
-            return TryExecute(() =>
+            return TryExecute.WithLogger(() =>
             {
                 EnsureConnectionIsValid();
                 _transaction = new Transaction(_connection, _logger);
                 return _transaction;
-            });
+            }, _logger);
         }
 
         private void EnsureConnectionIsValid()

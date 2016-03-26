@@ -19,10 +19,6 @@ namespace Neo4j.Driver.Tests
                 Parameters = parameters;
                 return null; // nah, I do not care
             }
-
-            public MyStatementRunner() : base(null)
-            {
-            }
         }
 
         public class RunStatementMethod
