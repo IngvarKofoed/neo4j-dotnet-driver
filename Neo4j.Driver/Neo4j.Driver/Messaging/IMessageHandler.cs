@@ -17,7 +17,7 @@
 using System.Collections.Generic;
 using Neo4j.Driver.Internal.Result;
 
-namespace Neo4j.Driver.Internal.Messaging
+namespace Neo4j.Driver.Messaging
 {
     internal interface IMessageRequestHandler
     {

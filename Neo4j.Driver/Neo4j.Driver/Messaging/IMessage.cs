@@ -14,13 +14,15 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-namespace Neo4j.Driver.Internal.Messaging
+namespace Neo4j.Driver.Messaging
 {
-    internal class IgnoredMessage : IMessage
+    internal interface IRequestMessage :IMessage
     {
-        public override string ToString()
-        {
-            return "IGNORED";
-        }
+        void Dispatch(IMessageRequestHandler messageRequestHandler);
+    }
+
+    internal interface IMessage
+    {
+        
     }
 }

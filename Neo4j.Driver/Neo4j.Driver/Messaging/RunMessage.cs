@@ -14,27 +14,31 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Neo4j.Driver.Extensions;
 
-namespace Neo4j.Driver.Internal.Messaging
+namespace Neo4j.Driver.Messaging
 {
-    internal class RecordMessage : IMessage
+    internal class RunMessage : IRequestMessage
     {
-        private object[] fields;
+        private readonly string _statement;
+        private readonly IDictionary<string, object> _statementParameters;
 
-        public RecordMessage(object[] fields)
+        public RunMessage(string statement, IDictionary<string, object> statementParameters = null)
         {
-            this.fields = fields;
+            _statement = statement;
+            _statementParameters = statementParameters;
+        }
+
+        public void Dispatch(IMessageRequestHandler messageRequestHandler)
+        {
+            messageRequestHandler.HandleRunMessage( _statement, _statementParameters );
         }
 
         public override string ToString()
         {
-            return $"RECORD {fields.ValueToString()}";
+            return $"RUN `{_statement}` {_statementParameters.ValueToString()}";
         }
     }
 }

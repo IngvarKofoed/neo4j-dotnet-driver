@@ -20,7 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neo4j.Driver.Internal.Messaging
+namespace Neo4j.Driver.Messaging
 {
     internal class FailureMessage : IMessage
     {

@@ -18,7 +18,7 @@
 using System;
 using System.Collections;
 using Neo4j.Driver.Internal.Connector;
-using Neo4j.Driver.Internal.Messaging;
+using Neo4j.Driver.Messaging;
 
 namespace Neo4j.Driver.Packstream
 {

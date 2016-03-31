@@ -14,24 +14,24 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Neo4j.Driver.Internal.Messaging
+using System.Collections.Generic;
+using Neo4j.Driver.Extensions;
+
+namespace Neo4j.Driver.Messaging
 {
-    internal class PullAllMessage : IRequestMessage
+    internal class SuccessMessage : IMessage
     {
-        public void Dispatch(IMessageRequestHandler messageRequestHandler)
+        private IDictionary<string, object> meta;
+
+        public SuccessMessage(IDictionary<string, object> meta)
         {
-            messageRequestHandler.HandlePullAllMessage();
+            this.meta = meta;
         }
 
         public override string ToString()
         {
-            return "PULLALL";
+            return $"SUCCESS {meta.ValueToString()}";
         }
     }
 }

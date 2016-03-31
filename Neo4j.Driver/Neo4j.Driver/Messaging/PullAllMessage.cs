@@ -20,18 +20,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neo4j.Driver.Internal.Messaging
+namespace Neo4j.Driver.Messaging
 {
-    internal class ResetMessage:IRequestMessage
+    internal class PullAllMessage : IRequestMessage
     {
         public void Dispatch(IMessageRequestHandler messageRequestHandler)
         {
-            messageRequestHandler.HandleResetMessage();
+            messageRequestHandler.HandlePullAllMessage();
         }
 
         public override string ToString()
         {
-            return "RESET";
+            return "PULLALL";
         }
     }
 }

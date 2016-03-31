@@ -16,7 +16,7 @@
 // limitations under the License.
 using System.Collections.Generic;
 
-namespace Neo4j.Driver.Internal.Messaging
+namespace Neo4j.Driver.Messaging
 {
     internal class InitMessage : IRequestMessage
     {

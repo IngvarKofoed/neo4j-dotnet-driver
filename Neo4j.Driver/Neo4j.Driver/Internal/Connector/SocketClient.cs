@@ -18,7 +18,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Neo4j.Driver.Internal.Messaging;
+using Neo4j.Driver.Messaging;
 using Neo4j.Driver.Packstream;
 using Sockets.Plugin;
 using Sockets.Plugin.Abstractions;

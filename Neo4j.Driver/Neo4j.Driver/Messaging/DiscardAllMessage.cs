@@ -14,15 +14,24 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-namespace Neo4j.Driver.Internal.Messaging
-{
-    internal interface IRequestMessage :IMessage
-    {
-        void Dispatch(IMessageRequestHandler messageRequestHandler);
-    }
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-    internal interface IMessage
+namespace Neo4j.Driver.Messaging
+{
+    internal class DiscardAllMessage:IRequestMessage
     {
-        
+        public void Dispatch(IMessageRequestHandler messageRequestHandler)
+        {
+            messageRequestHandler.HandleDiscardAllMessage();
+        }
+
+        public override string ToString()
+        {
+            return "DISCARDALL";
+        }
     }
 }

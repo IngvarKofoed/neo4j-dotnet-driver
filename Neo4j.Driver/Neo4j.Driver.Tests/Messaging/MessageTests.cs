@@ -16,7 +16,7 @@
 // limitations under the License.
 using System.Collections.Generic;
 using FluentAssertions;
-using Neo4j.Driver.Internal.Messaging;
+using Neo4j.Driver.Messaging;
 using Xunit;
 
 namespace Neo4j.Driver.Tests.Messaging

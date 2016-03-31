@@ -14,24 +14,13 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-
-using System.Collections.Generic;
-using Neo4j.Driver.Extensions;
-
-namespace Neo4j.Driver.Internal.Messaging
+namespace Neo4j.Driver.Messaging
 {
-    internal class SuccessMessage : IMessage
+    internal class IgnoredMessage : IMessage
     {
-        private IDictionary<string, object> meta;
-
-        public SuccessMessage(IDictionary<string, object> meta)
-        {
-            this.meta = meta;
-        }
-
         public override string ToString()
         {
-            return $"SUCCESS {meta.ValueToString()}";
+            return "IGNORED";
         }
     }
 }

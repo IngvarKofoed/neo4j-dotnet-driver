@@ -17,7 +17,7 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Neo4j.Driver.Internal.Messaging;
+using Neo4j.Driver.Messaging;
 
 namespace Neo4j.Driver.Internal.Connector
 {

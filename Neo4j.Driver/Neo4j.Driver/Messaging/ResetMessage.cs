@@ -20,18 +20,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neo4j.Driver.Internal.Messaging
+namespace Neo4j.Driver.Messaging
 {
-    internal class DiscardAllMessage:IRequestMessage
+    internal class ResetMessage:IRequestMessage
     {
         public void Dispatch(IMessageRequestHandler messageRequestHandler)
         {
-            messageRequestHandler.HandleDiscardAllMessage();
+            messageRequestHandler.HandleResetMessage();
         }
 
         public override string ToString()
         {
-            return "DISCARDALL";
+            return "RESET";
         }
     }
 }
