@@ -19,7 +19,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Neo4j.Driver.Internal;
-using Neo4j.Driver.Internal.Result;
+using Neo4j.Driver.Result;
 using Xunit;
 
 namespace Neo4j.Driver.Tests.Result

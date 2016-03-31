@@ -20,7 +20,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Neo4j.Driver.Extensions;
 using Neo4j.Driver.Messaging;
-using Neo4j.Driver.Internal.Result;
+using Neo4j.Driver.Result;
 
 namespace Neo4j.Driver.Internal.Connector
 {

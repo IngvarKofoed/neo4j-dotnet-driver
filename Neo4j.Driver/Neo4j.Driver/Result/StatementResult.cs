@@ -20,7 +20,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Neo4j.Driver.Extensions;
 
-namespace Neo4j.Driver.Internal.Result
+namespace Neo4j.Driver.Result
 {
     /// <summary>
     /// The result returned from the Neo4j instance

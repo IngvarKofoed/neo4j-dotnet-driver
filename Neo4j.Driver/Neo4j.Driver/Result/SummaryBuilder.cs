@@ -18,7 +18,7 @@ using System;
 using System.Collections.Generic;
 using Neo4j.Driver.Extensions;
 
-namespace Neo4j.Driver.Internal.Result
+namespace Neo4j.Driver.Result
 {
     internal class SummaryBuilder
     {

@@ -3,7 +3,7 @@ using System.Linq;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using static Neo4j.Driver.Tck.Tests.TCK.CypherRecordParser;
-using Record = Neo4j.Driver.Internal.Result.Record;
+using Record = Neo4j.Driver.Result.Record;
 
 namespace Neo4j.Driver.Tck.Tests.TCK
 {

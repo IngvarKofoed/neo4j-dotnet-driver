@@ -17,7 +17,7 @@
 // 
 using System.Collections.Generic;
 
-namespace Neo4j.Driver.Internal.Result
+namespace Neo4j.Driver.Result
 {
     internal interface IResultBuilder
     {

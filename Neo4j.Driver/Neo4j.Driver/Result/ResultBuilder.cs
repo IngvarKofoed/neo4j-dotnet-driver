@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 using Neo4j.Driver.Extensions;
 using static Neo4j.Driver.StatementType;
 
-namespace Neo4j.Driver.Internal.Result
+namespace Neo4j.Driver.Result
 {
     internal class ResultBuilder : IResultBuilder
     {

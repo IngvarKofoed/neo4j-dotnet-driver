@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Neo4j.Driver.Extensions;
 
-namespace Neo4j.Driver.Internal.Result
+namespace Neo4j.Driver.Result
 {
     internal class Record : IRecord
     {

@@ -19,7 +19,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Neo4j.Driver.Internal.Result
+namespace Neo4j.Driver.Result
 {
     internal interface IPeekingEnumerator<T> : IEnumerator<T> where T : class
     {

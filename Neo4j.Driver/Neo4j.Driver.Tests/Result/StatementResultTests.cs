@@ -23,8 +23,8 @@ using FluentAssertions;
 using Moq;
 using Xunit;
 using Xunit.Abstractions;
-using Neo4j.Driver.Internal.Result;
-using Record = Neo4j.Driver.Internal.Result.Record;
+using Neo4j.Driver.Result;
+using Record = Neo4j.Driver.Result.Record;
 
 namespace Neo4j.Driver.Tests
 {
