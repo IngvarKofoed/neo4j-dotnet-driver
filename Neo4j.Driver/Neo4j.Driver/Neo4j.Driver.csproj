@@ -41,9 +41,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IAuthToken.cs" />
-    <Compile Include="Internal\AuthToken.cs" />
+    <Compile Include="AuthToken.cs" />
     <Compile Include="Internal\DebugLogger.cs" />
-    <Compile Include="Exceptions\Neo4jException.cs" />
+    <Compile Include="Neo4jException.cs" />
     <Compile Include="Extensions\Throw.cs" />
     <Compile Include="Extensions\ByteExtensions.cs" />
     <Compile Include="Extensions\Extensions.cs" />

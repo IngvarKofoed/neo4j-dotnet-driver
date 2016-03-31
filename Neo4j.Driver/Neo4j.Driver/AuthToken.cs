@@ -15,9 +15,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 using System.Collections.Generic;
-using Neo4j.Driver.Exceptions;
 
-namespace Neo4j.Driver.Internal
+namespace Neo4j.Driver
 {
     /// <summary>
     ///     A simple common token for authentication schemes that easily convert to an auth token map

@@ -24,7 +24,6 @@ using System.Management.Automation.Runspaces;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.PowerShell;
-using Neo4j.Driver.Exceptions;
 
 namespace Neo4j.Driver.IntegrationTests
 {

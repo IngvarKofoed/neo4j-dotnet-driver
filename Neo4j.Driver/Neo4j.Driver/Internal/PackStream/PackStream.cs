@@ -22,7 +22,7 @@ using Neo4j.Driver.Internal.Messaging;
 
 namespace Neo4j.Driver.Internal.Packstream
 {
-    public class PackStream
+    internal class PackStream
     {
         public enum PackType
         {
@@ -652,13 +652,13 @@ namespace Neo4j.Driver.Internal.Packstream
         }
     }
 
-    public interface IWriter
+    internal interface IWriter
     {
         void Write(IRequestMessage requestMessage);
         void Flush();
     }
 
-    public interface IReader
+    internal interface IReader
     {
 //        bool HasNext();
         void Read(IMessageResponseHandler responseHandler);
