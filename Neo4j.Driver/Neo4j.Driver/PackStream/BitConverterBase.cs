@@ -18,7 +18,7 @@
 using System;
 using System.Text;
 
-namespace Neo4j.Driver.Internal.Packstream
+namespace Neo4j.Driver.Packstream
 {
     internal abstract class BitConverterBase
     {

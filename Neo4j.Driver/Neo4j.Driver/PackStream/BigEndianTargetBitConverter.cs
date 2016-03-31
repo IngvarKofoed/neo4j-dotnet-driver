@@ -18,7 +18,7 @@
 using System;
 using System.Linq;
 
-namespace Neo4j.Driver.Internal.Packstream
+namespace Neo4j.Driver.Packstream
 {
     /// <summary>
     ///     Converts from/to big endian (target) to platform endian.

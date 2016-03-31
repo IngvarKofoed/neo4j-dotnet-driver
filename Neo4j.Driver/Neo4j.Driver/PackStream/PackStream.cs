@@ -20,7 +20,7 @@ using System.Collections;
 using Neo4j.Driver.Internal.Connector;
 using Neo4j.Driver.Internal.Messaging;
 
-namespace Neo4j.Driver.Internal.Packstream
+namespace Neo4j.Driver.Packstream
 {
     internal class PackStream
     {

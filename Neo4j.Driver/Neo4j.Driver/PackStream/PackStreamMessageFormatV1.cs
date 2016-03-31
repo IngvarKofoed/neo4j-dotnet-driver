@@ -24,7 +24,7 @@ using Neo4j.Driver.Internal.Connector;
 using Neo4j.Driver.Internal.Messaging;
 using Sockets.Plugin.Abstractions;
 
-namespace Neo4j.Driver.Internal.Packstream
+namespace Neo4j.Driver.Packstream
 {
     internal class PackStreamMessageFormatV1
     {
