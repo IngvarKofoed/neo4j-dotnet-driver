@@ -18,7 +18,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Moq;
-using Neo4j.Driver.Internal.Connector;
+using Neo4j.Driver.Connector;
 using Sockets.Plugin.Abstractions;
 
 namespace Neo4j.Driver.Tests

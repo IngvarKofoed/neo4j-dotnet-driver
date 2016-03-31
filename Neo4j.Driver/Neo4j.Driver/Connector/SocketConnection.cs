@@ -22,7 +22,7 @@ using Neo4j.Driver.Extensions;
 using Neo4j.Driver.Messaging;
 using Neo4j.Driver.Result;
 
-namespace Neo4j.Driver.Internal.Connector
+namespace Neo4j.Driver.Connector
 {
     internal class SocketConnection : IConnection
     {

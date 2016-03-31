@@ -16,7 +16,7 @@
 // limitations under the License.
 using System;
 using System.Collections.Generic;
-using Neo4j.Driver.Internal.Connector;
+using Neo4j.Driver.Connector;
 
 namespace Neo4j.Driver.Internal
 {

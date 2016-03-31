@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Neo4j.Driver.Extensions;
-using Neo4j.Driver.Internal.Connector;
+using Neo4j.Driver.Connector;
 using Neo4j.Driver.Messaging;
 using Sockets.Plugin.Abstractions;
 

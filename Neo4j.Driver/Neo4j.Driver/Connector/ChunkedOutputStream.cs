@@ -20,7 +20,7 @@ using Neo4j.Driver.Extensions;
 using Neo4j.Driver.Packstream;
 using Sockets.Plugin.Abstractions;
 
-namespace Neo4j.Driver.Internal.Connector
+namespace Neo4j.Driver.Connector
 {
     internal class ChunkedOutputStream : IOutputStream
     {

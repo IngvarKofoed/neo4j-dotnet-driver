@@ -14,21 +14,12 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-
-using System;
-using System.Collections.Generic;
-using Neo4j.Driver.Result;
-
-namespace Neo4j.Driver.Internal.Connector
+namespace Neo4j.Driver.Connector
 {
-    internal interface IConnection : IDisposable
+    internal interface IOutputStream
     {
-        void Sync();
-        void Run(ResultBuilder resultBuilder, string statement, IDictionary<string, object> parameters=null);
-        void PullAll(ResultBuilder resultBuilder);
-        void DiscardAll();
-        void Reset();
-        bool IsOpen { get; }
-        bool HasUnrecoverableError { get; }
+        IOutputStream Write(byte b, params byte[] bytes);
+        IOutputStream Write(byte[] bytes);
+        IOutputStream Flush();
     }
 }

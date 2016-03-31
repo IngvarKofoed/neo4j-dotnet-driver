@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
 using Neo4j.Driver.Internal;
-using Neo4j.Driver.Internal.Connector;
+using Neo4j.Driver.Connector;
 using Neo4j.Driver.Result;
 using Xunit;
 

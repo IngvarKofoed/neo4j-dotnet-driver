@@ -14,12 +14,22 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-namespace Neo4j.Driver.Internal.Connector
+
+using System.IO;
+
+namespace Neo4j.Driver.Connector
 {
-    internal interface IOutputStream
+    internal static class SocketExtensions
     {
-        IOutputStream Write(byte b, params byte[] bytes);
-        IOutputStream Write(byte[] bytes);
-        IOutputStream Flush();
+        public static void Write(this Stream stream, byte[] bytes)
+        {
+            stream.Write(bytes, 0, bytes.Length);
+        }
+
+        public static int Read(this Stream stream, byte[] bytes)
+        {
+//            while()
+            return stream.Read(bytes, 0, bytes.Length);
+        }
     }
 }

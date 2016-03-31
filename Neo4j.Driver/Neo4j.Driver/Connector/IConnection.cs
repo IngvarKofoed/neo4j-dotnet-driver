@@ -15,21 +15,20 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-using System.IO;
+using System;
+using System.Collections.Generic;
+using Neo4j.Driver.Result;
 
-namespace Neo4j.Driver.Internal.Connector
+namespace Neo4j.Driver.Connector
 {
-    internal static class SocketExtensions
+    internal interface IConnection : IDisposable
     {
-        public static void Write(this Stream stream, byte[] bytes)
-        {
-            stream.Write(bytes, 0, bytes.Length);
-        }
-
-        public static int Read(this Stream stream, byte[] bytes)
-        {
-//            while()
-            return stream.Read(bytes, 0, bytes.Length);
-        }
+        void Sync();
+        void Run(ResultBuilder resultBuilder, string statement, IDictionary<string, object> parameters=null);
+        void PullAll(ResultBuilder resultBuilder);
+        void DiscardAll();
+        void Reset();
+        bool IsOpen { get; }
+        bool HasUnrecoverableError { get; }
     }
 }
