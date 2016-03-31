@@ -23,6 +23,7 @@ using Neo4j.Driver.Extensions;
 using Neo4j.Driver.Connector;
 using Neo4j.Driver.Messaging;
 using Sockets.Plugin.Abstractions;
+using Neo4j.Driver.Entities;
 
 namespace Neo4j.Driver.Packstream
 {
@@ -173,7 +174,7 @@ namespace Neo4j.Driver.Packstream
                     segments[i] = new Segment(prevNode, rel, nextNode);
                     prevNode = nextNode;
                 }
-                return new Path(segments.ToList(), nodes.ToList(),rels.ToList());
+                return new Entities.Path(segments.ToList(), nodes.ToList(),rels.ToList());
             }
 
             private IRelationship UnpackRelationship()

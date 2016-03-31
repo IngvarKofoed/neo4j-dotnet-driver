@@ -19,13 +19,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using FluentAssertions;
-using Neo4j.Driver.Internal;
 using Xunit;
 using Xunit.Abstractions;
 using Path = System.IO.Path;
 
 namespace Neo4j.Driver.IntegrationTests
 {
+    using Logging;
     using System.Linq;
 
     [Collection(IntegrationCollection.CollectionName)]

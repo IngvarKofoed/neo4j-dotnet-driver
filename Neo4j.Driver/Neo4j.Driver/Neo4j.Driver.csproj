@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="IAuthToken.cs" />
     <Compile Include="AuthToken.cs" />
-    <Compile Include="Internal\DebugLogger.cs" />
+    <Compile Include="Logging\DebugLogger.cs" />
     <Compile Include="Messaging\DiscardAllMessage.cs" />
     <Compile Include="Messaging\FailureMessage.cs" />
     <Compile Include="Messaging\IgnoredMessage.cs" />
@@ -64,12 +64,12 @@
     <Compile Include="Connector\IOutputStream.cs" />
     <Compile Include="Connector\ISocketClient.cs" />
     <Compile Include="IEntity.cs" />
-    <Compile Include="Internal\LoggerBase.cs" />
-    <Compile Include="Internal\Entity.cs" />
+    <Compile Include="Logging\LoggerBase.cs" />
+    <Compile Include="Entities\Entity.cs" />
     <Compile Include="Result\IResultBuilder.cs" />
-    <Compile Include="Internal\SessionPool.cs" />
-    <Compile Include="Internal\StatementRunner.cs" />
-    <Compile Include="Internal\Transaction.cs" />
+    <Compile Include="StatementRunners\SessionPool.cs" />
+    <Compile Include="StatementRunners\StatementRunner.cs" />
+    <Compile Include="StatementRunners\Transaction.cs" />
     <Compile Include="Connector\ChunkedInputStream.cs" />
     <Compile Include="Connector\ChunkedOutputStream.cs" />
     <Compile Include="Connector\SocketClient.cs" />
@@ -79,7 +79,7 @@
     <Compile Include="Connector\IConnection.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="GraphDatabase.cs" />
-    <Compile Include="Internal\Session.cs" />
+    <Compile Include="StatementRunners\Session.cs" />
     <Compile Include="Result\ResultBuilder.cs" />
     <Compile Include="Connector\SocketConnection.cs" />
     <Compile Include="Result\SummaryBuilder.cs" />

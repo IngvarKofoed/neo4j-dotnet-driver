@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using Neo4j.Driver.Connector;
 using Neo4j.Driver.Result;
 
-namespace Neo4j.Driver.Internal
+namespace Neo4j.Driver.StatementRunners
 {
     internal class Session : StatementRunner, IPooledSession
     {

@@ -1,8 +1,9 @@
+using Neo4j.Driver.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Neo4j.Driver.Internal
+namespace Neo4j.Driver.StatementRunners
 {
     internal abstract class StatementRunner : LoggerBase
     {

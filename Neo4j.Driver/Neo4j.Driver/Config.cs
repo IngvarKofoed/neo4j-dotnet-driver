@@ -15,7 +15,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-using Neo4j.Driver.Internal;
+using Neo4j.Driver.Logging;
 
 namespace Neo4j.Driver
 {

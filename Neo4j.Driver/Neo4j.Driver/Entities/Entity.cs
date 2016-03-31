@@ -18,7 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Neo4j.Driver.Internal
+namespace Neo4j.Driver.Entities
 {
     internal class Node : INode, IEquatable<INode>
     {

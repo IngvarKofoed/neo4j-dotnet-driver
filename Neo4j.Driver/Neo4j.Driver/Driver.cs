@@ -16,7 +16,8 @@
 // limitations under the License.
 using System;
 using Neo4j.Driver.Extensions;
-using Neo4j.Driver.Internal;
+using Neo4j.Driver.Logging;
+using Neo4j.Driver.StatementRunners;
 
 namespace Neo4j.Driver
 {

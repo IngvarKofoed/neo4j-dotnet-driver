@@ -21,12 +21,12 @@ using System.IO;
 using FluentAssertions;
 using Moq;
 using Neo4j.Driver.Extensions;
-using Neo4j.Driver.Internal;
 using Neo4j.Driver.Connector;
 using Neo4j.Driver.Messaging;
 using Neo4j.Driver.Packstream;
 using Sockets.Plugin.Abstractions;
 using Xunit;
+using Neo4j.Driver.Entities;
 
 namespace Neo4j.Driver.Tests
 {

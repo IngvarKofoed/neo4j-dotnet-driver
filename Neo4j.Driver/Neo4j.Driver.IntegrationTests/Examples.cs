@@ -20,9 +20,9 @@ using System.Linq;
 using Neo4j.Driver;
 //end::minimal-example-import[]
 using Neo4j.Driver.IntegrationTests;
-using Neo4j.Driver.Internal;
 using Xunit;
 using Xunit.Abstractions;
+using Neo4j.Driver.Logging;
 
 namespace Neo4j.Driver.Examples
 {

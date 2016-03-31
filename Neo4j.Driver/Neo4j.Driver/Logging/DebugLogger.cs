@@ -3,7 +3,7 @@ using System.Collections;
 using System.Linq;
 using Neo4j.Driver.Extensions;
 
-namespace Neo4j.Driver.Internal
+namespace Neo4j.Driver.Logging
 {
     internal class DebugLogger : BaseOutLogger
     {

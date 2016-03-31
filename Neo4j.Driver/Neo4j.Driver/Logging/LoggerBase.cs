@@ -18,7 +18,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Neo4j.Driver.Internal
+namespace Neo4j.Driver.Logging
 {
     public abstract class LoggerBase : IDisposable
     {
